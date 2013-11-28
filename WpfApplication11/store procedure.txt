@@ -1,0 +1,9 @@
+create procedure informacion
+@nombre varchar(50)
+as
+begin 
+select p.NOMBRE  AS 'NOMBRE', p.APELLIDO AS 'APELLIDO', p.CORREO_ELECTRONICO AS 'CORREO ELECTRONICO', p.FECHA_DE_NACIMIENTO AS 'FECHA DE NACIMIENTO', p.DNI AS 'NUMERO DE  D.N.I.', t.TELEFONO, d.DIRECCION, t.CELULAR 
+from PERSONAS p left join TELEFONO t on p.ID_PERSONAS=t.ID_PERSONAS left join DIRECCION d on p.ID_PERSONAS=d.ID_PERSONAS
+where p.NOMBRE=@nombre
+end
+go
